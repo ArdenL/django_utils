@@ -3,7 +3,7 @@ Some utils for django project
 ___
 ## col.py
 Collecting models of django, and extract to docx
-Tips:It is used with django shell
+**Tips:It is used with django shell**
 Third-party package:
 * python-docx: pip install python-docx
 https://python-docx.readthedocs.io/en/latest/index.html
@@ -64,3 +64,20 @@ Out: 'watermark_example/new_img.jpg'
 ```
 ![new_img.jpg](watermark_example/new_img.jpg)
 ___
+## data.py
+Did you had trouble for when you created a Django project but you didn't had data to test you project?
+Now, it will never be your trouble!
+**Tips:It is used with django shell**
+`create_data(model, force=[], i=1)`
+>* model: Model object of installed applications
+>* force: General case, the field will be excluded if it can be nullable or have default value，this is a list of fields name of model, field won't be excluded if it in this list
+>* i: Creating data times
+
+```
+In: from data import create_data
+In: from apps.models import my_model
+In: create_data(my_model)
+```
+You can check your data base after you done above command.
+The data had created!
+You needn't to care foreign-key, of course if your fields need a foreign-key but it hadn't created then this way will automatical creat it once.
